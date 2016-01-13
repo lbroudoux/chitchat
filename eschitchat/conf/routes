@@ -1,0 +1,16 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# Chitchat handling
+
+POST    /chitchat                       controllers.ChitChat.chitchat
+GET     /chitchat/latest/:superhero     controllers.ChitChat.readLatest(superhero: String)
+GET     /chitchat/thread/:threadId      controllers.ChitChat.readThread(threadId: Int)
+GET     /chitchat/search                controllers.ChitChat.searchChitchat(q: String, limit: Int ?= 100)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
